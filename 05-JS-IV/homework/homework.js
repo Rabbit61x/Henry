@@ -65,9 +65,11 @@ function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-  if (usuario.email === undefined) return false;
-  else if (usuario.email === null) return false;
-  else return true;
+ // if (usuario.email === undefined) return false;
+ // else if (usuario.email === null) return false;
+ // else return true;
+ if (usuario.email) return true;
+ return false;
 }
 
 function tienePropiedad(objeto, propiedad) {
@@ -75,8 +77,9 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (objeto[propiedad] !== undefined) return true;
-  else return false;
+   return objeto.hasOwnProperty(propiedad);
+  //if (objeto[propiedad] !== undefined) return true;
+  //else return false;
 }
 
 function verificarPassword(usuario, password) {
@@ -111,7 +114,10 @@ function pasarUsuarioAPremium(usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
-  var usuar = usuarios.map(function (usuariosact) { usuariosact.esPremium = true});
+  //var usuar = usuarios.map(function (usuariosact) { usuariosact.esPremium = true});
+  //return usuarios;
+  for (var i = 0; i < usuarios.length; i++)
+  usuarios[i].esPremium = true;
   return usuarios;
 }
 
@@ -122,7 +128,11 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
-  var suma = usuario.posts.reduce(function(sumaCadaEl, juancho) {return sumaCadaEl +=  juancho.likes},0);
+  // var suma = usuario.posts.reduce(function(sumaCadaEl, juancho) {return sumaCadaEl +=  juancho.likes},0);
+  var suma=0
+  for (var i=0; i < usuario.posts.length; i++) {
+    suma += usuario.posts[i].likes;
+  }
   return suma;
 }
 
@@ -136,14 +146,23 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
-  producto['calcularPrecioDescuento'] = function() {
-    var precioConDescuento =
-      producto.precio - (producto.precio * 
-      producto.porcentajeDeDescuento);
-      return precioConDescuento;
-  };
+  // producto['calcularPrecioDescuento'] = function() {
+    //var precioConDescuento =
+    //  producto.precio - (producto.precio * 
+   //   producto.porcentajeDeDescuento);
+   //   return precioConDescuento;
+  //};
   // var usuar = producto.map(function (Ptoact) { Ptoact.esPremium = true});
-  return producto;
+  
+//  var precioConDescuento = 0;
+// for (var i = 0; i < producto.length; i++)
+// producto.precioConDescuento = producto.precio - (producto.precio *  producto.porcentajeDeDescuento);
+//return producto;
+// }
+producto.calcularPrecioDescuento = function () {
+  return this.precio - (this.precio * this.porcentajeDeDescuento);
+}
+return producto;
 }
 
 // No modificar nada debajo de esta línea

@@ -81,16 +81,20 @@ function crearInstanciaPersona(nombre, apellido, edad, dir) {
   //Recibirá los valores "Juan", "Perez", 22, "Saavedra 123" para sus respectivas propiedades
   //Devolver la nueva persona creada
   // Crea el constructor:
-  let miPersona = new Persona("Juan", "Perez", 22, "Saavedra 123");
-  return miPersona;
+  function ponMayuscula(nombre) {
+    var letraInicial = "";
+    letraInicial = nombre.toUpperCase();
+    nombre = letraInicial.substring(0, 1) + nombre.substring(1, nombre.length);
+    return nombre;
+  }
 }
 
 function agregarMetodo() {
   //La función agrega un método "datos" a la clase Persona que toma el nombre y la edad de la persona y devuelve:
   //Ej: "Juan, 22 años"
   Persona.prototype.datos = function () {
-     return this.nombre + ", " + this.edad + " años";
-   }
+    return this.nombre + ", " + this.edad + " años";
+  };
 }
 
 // No modificar nada debajo de esta línea

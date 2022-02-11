@@ -81,12 +81,17 @@ function crearInstanciaPersona(nombre, apellido, edad, dir) {
   //Recibirá los valores "Juan", "Perez", 22, "Saavedra 123" para sus respectivas propiedades
   //Devolver la nueva persona creada
   // Crea el constructor:
-  function ponMayuscula(nombre) {
+//  function ponMayuscula(nombre) {
+  //var arr = nombre.split(""); // La solucción del instructor
+  //arr[0] = arr[0].toUpperCase();
+  //return arr.join("");
+  // otra solucion;
+   //return nombre.charAt(0).toUpperCase() + nombre.slice(1);
     var letraInicial = "";
     letraInicial = nombre.toUpperCase();
     nombre = letraInicial.substring(0, 1) + nombre.substring(1, nombre.length);
     return nombre;
-  }
+//  }
 }
 
 function agregarMetodo() {

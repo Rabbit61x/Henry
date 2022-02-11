@@ -46,6 +46,7 @@ function forEach(array, cb) {
   //const Nvoarray = array.map(function(elemento){cb(elemento);});
   //cb (Nvoarray);
   // const Nvoarray = array.map(cb);
+  // array.forEach(function(valor){return cb(valor)})};
   array.forEach(cb);
 }
 
@@ -56,9 +57,9 @@ function map(array, cb) {
   //Tu código:
   //const Nvoarray = array.map(function(elemento){return cb(elemento);});
   //const Nvoarray = array.map(cb);
-  //return Nvoarray;
-  // var resultado = array.map(function(e){return cd(e);})
-  // return resultado;
+  //return nvoArray;
+  // var nvoArray = array.map(function(e){return cd(e);})
+  // return nvoArray;
   return array.map(cb);
 }
 
